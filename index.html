@@ -1,0 +1,1078 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Who vouches — Oct 22, 2026</title>
+<style>
+body{margin:0;font-family:system-ui,sans-serif;background:#0f1420;color:#e8ecf3;display:flex;flex-wrap:wrap;min-height:100vh}
+#chart{flex:1 1 600px;min-height:70vh;position:relative}svg{width:100%;height:100%;touch-action:none}
+#panel{flex:0 0 340px;max-width:100%;background:#171e2e;padding:14px;box-sizing:border-box;overflow:auto;max-height:100vh}
+h1{font-size:18px;margin:0 0 4px}.sub{color:#9aa6bd;font-size:12px}a{color:#8fb8ff}
+.card{background:#202a3e;border-radius:8px;padding:8px;margin:8px 0;font-size:13px}
+.lg span{display:inline-block;width:12px;height:12px;border-radius:50%;margin:0 4px -2px 10px}
+#tip{position:absolute;pointer-events:none;background:#000c;padding:6px 8px;border-radius:6px;font-size:12px;display:none}
+text{pointer-events:none;fill:#fff;font-size:11px;text-anchor:middle;dominant-baseline:middle}
+@media(max-width:700px){#panel{flex-basis:100%;max-height:none}}
+</style></head><body>
+<div id="chart"><div id="tip"></div></div>
+<div id="panel"><h1>Who vouches for what</h1><div class="sub">Last updated Oct 22, 2026 · paper only · stock size = number of influencers with a stance · influencer size = total reach</div>
+<div class="lg" style="margin-top:8px;font-size:12px"><span style="background:#3b82f6"></span>Holding<span style="background:#a855f7"></span>Watchlist<span style="background:#64748b"></span>Influencer<span style="background:#334155;border:1px dashed #aaa"></span>Placeholder<br>
+Links: <span style="background:#22c55e"></span>Bullish<span style="background:#eab308"></span>Watch<span style="background:#ef4444"></span>Bearish</div>
+<div id="info"><p class="sub">Outer ring: YouTubers from Jhun's Discord. Tap a stock to see who vouches. Tap an influencer to see reach and their stocks. Drag to move.</p></div></div>
+<script>let DATA={
+ "last_updated": "2026-10-22",
+ "note": "Paper only. No position sizes. Outer ring = YouTubers from Jhun's Discord. Counts are third-party tracker snapshots unless the source is YouTube. 'basis' says whether the stance comes from a transcript, a title, or a tracker summary. Never invent; use 'not found'.",
+ "stocks": [
+  {
+   "ticker": "AMD",
+   "group": "holding"
+  },
+  {
+   "ticker": "NOW",
+   "group": "holding"
+  },
+  {
+   "ticker": "ZETA",
+   "group": "holding"
+  },
+  {
+   "ticker": "BE",
+   "group": "holding"
+  },
+  {
+   "ticker": "AMZN",
+   "group": "holding"
+  },
+  {
+   "ticker": "MRVL",
+   "group": "holding"
+  },
+  {
+   "ticker": "ONDS",
+   "group": "holding"
+  },
+  {
+   "ticker": "SOFI",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "SKHY",
+   "group": "holding"
+  },
+  {
+   "ticker": "APLD",
+   "group": "holding"
+  },
+  {
+   "ticker": "HIMS",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "MU",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "SPCX",
+   "group": "holding"
+  },
+  {
+   "ticker": "HSYDF",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "CRWD",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "TSLA",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "OKLO",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "AAPL",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "NBIS",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "XNDU",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "RRX",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "TKR",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "CLSK",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "BBAI",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "POET",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "QBTS",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "CRWV",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "RGTI",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "LAC",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "FLNC",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "GOOG",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "NVTS",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "RNECY",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "AMBA",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "INTC",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "VIAV",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "AVGO",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "PLTR",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "MSFT",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "VRT",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "ANET",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "ORCL",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "IREN",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "NVDA",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "IONQ",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "PANW",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "VST",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "CBRS",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "CEG",
+   "group": "watchlist"
+  },
+  {
+   "ticker": "NFLX",
+   "group": "watchlist"
+  }
+ ],
+ "influencers": [
+  {
+   "id": "ziptrader",
+   "name": "ZipTrader",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 32,
+    "discord_channels": "amd, apld, crm, crwv, energy, iren, mu, multibagger, now, nvda, nvts, onds, orcl, pltr, qcom, qnt, quantum-videos, robots, smr, sofi, tsla, tssi, zeta",
+    "most_recent_share": "2026-10-13",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@ziptrader",
+     "count": 899000,
+     "date": "2026-10-19",
+     "source": "https://vidiq.com/youtube-stats/channel/@ziptrader/"
+    }
+   ],
+   "note": "",
+   "total_reach": 899000
+  },
+  {
+   "id": "profg",
+   "name": "Investing Simplified - Professor G (Nolan Gouveia)",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 30,
+    "discord_channels": "amd, amzn, apld, goog, hims, iren, macro-economics, meta, msft, now, nvda, orcl, quantum-videos, retire-early, sofi",
+    "most_recent_share": "2026-09-27",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@NolanGouveia",
+     "count": 474000,
+     "date": "2026-10-10",
+     "source": "https://www.tubegrade.com/@nolangouveia"
+    }
+   ],
+   "note": "Not the same as the finance-team agent named Professor G.",
+   "total_reach": 474000
+  },
+  {
+   "id": "bwb",
+   "name": "BWB - Business With Brian",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 26,
+    "discord_channels": "amba, amzn, anet, apld, avgo, be, cqtm-etf, crwv, cybersecurity, goog, mbly, mrvl, multibagger, nvda, orcl, qtum-etf, quantum-videos, retire-early, robots, wqtm-etf",
+    "most_recent_share": "2026-10-13",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@BusinessWithBrian",
+     "count": 448000,
+     "date": "2026-10-21",
+     "source": "https://theysaidbuy.com/creators/business-with-brian/"
+    }
+   ],
+   "note": "",
+   "total_reach": 448000
+  },
+  {
+   "id": "hogue",
+   "name": "Let's Talk Money! with Joseph Hogue, CFA",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 24,
+    "discord_channels": "ai, amd, amzn, avgo, be, bot, campaign-chat, cybersecurity, geni, memory, mrvl, mu, multibagger, now, nvda, retire-early, robots, sofi, vrt",
+    "most_recent_share": "2026-10-17",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@josephhogue",
+     "count": 637000,
+     "date": "page read 2026-10-21",
+     "source": "https://www.youtube.com/@josephhogue"
+    }
+   ],
+   "note": "",
+   "total_reach": 637000
+  },
+  {
+   "id": "tomnash",
+   "name": "Tom Nash",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 18,
+    "discord_channels": "amd, amzn, anet, avgo, be, ceg, goog, msft, now, nvda, persistence, pltr, sofi, tsla, vrt, zeta",
+    "most_recent_share": "2026-08-08",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@tomnashtv",
+     "count": 699000,
+     "date": "2026-10-19",
+     "source": "https://vidiq.com/youtube-stats/channel/@tomnashtv/"
+    }
+   ],
+   "note": "",
+   "total_reach": 699000
+  },
+  {
+   "id": "henry",
+   "name": "Invest with Henry",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 18,
+    "discord_channels": "amzn, be, goog, intc, iren, leap-options, nbis, options-courses, sofi, tsla",
+    "most_recent_share": "2026-09-06",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@investwithhenry",
+     "count": 488000,
+     "date": "2026-10-19",
+     "source": "https://vidiq.com/youtube-stats/channel/@investwithhenry/"
+    }
+   ],
+   "note": "",
+   "total_reach": 488000
+  },
+  {
+   "id": "tsy",
+   "name": "Ticker Symbol: YOU",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 17,
+    "discord_channels": "ai, amd, crwv, iren, macro-economics, mu, nbis, neo-cloud, pltr, skhy",
+    "most_recent_share": "2026-10-04",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@TickerSymbolYOU",
+     "count": 666000,
+     "date": "2026 (date not shown)",
+     "source": "https://sponsorradar.com/channels/tickersymbolyou"
+    }
+   ],
+   "note": "",
+   "total_reach": 666000
+  },
+  {
+   "id": "lefebvre",
+   "name": "Jeremy Lefebvre (Makes Money + Clips)",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 22,
+    "discord_channels": "amd, amzn, campaign-chat, crm, meta, multibagger, nflx, now, pltr, sofi",
+    "most_recent_share": "2026-10-13",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube (Makes Money)",
+     "handle": "@jeremylefebvremakesmoney7934",
+     "count": 153000,
+     "date": "2026 (date not shown)",
+     "source": "https://playersells.com/best-youtube-channels/jeremylefebvremakesmoney7934"
+    },
+    {
+     "platform": "YouTube (Clips)",
+     "handle": "not found",
+     "count": null,
+     "date": "not found",
+     "source": "not found"
+    }
+   ],
+   "note": "Discord shares: 16 Clips + 6 Makes Money. Same person as Financial Education.",
+   "total_reach": 153000
+  },
+  {
+   "id": "camillo",
+   "name": "Dumb Money Live / Chris Camillo",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 15,
+    "discord_channels": "amzn, be, campaign-chat, goog, hood, infrastructure, tac, tsla",
+    "most_recent_share": "2026-10-04",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube (Dumb Money Live)",
+     "handle": "@DumbMoneyLive",
+     "count": 216999,
+     "date": "late Sep 2026",
+     "source": "https://socialcounts.org/youtube-live-subscriber-count/UCS01CiRDAiyhR_mTHXDW23A"
+    },
+    {
+     "platform": "X",
+     "handle": "@ChrisCamillo",
+     "count": 392600,
+     "date": "2026-10-18",
+     "source": "https://twiscan.com/en/x/ChrisCamillo"
+    }
+   ],
+   "note": "Dumb Money Live is co-hosted by Chris Camillo, Dave Hanson and Jordan McLain.",
+   "total_reach": 609599
+  },
+  {
+   "id": "fined",
+   "name": "Financial Education (Jeremy Lefebvre)",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 11,
+    "discord_channels": "amd, crm, goog, multibagger, now, pltr, sofi",
+    "most_recent_share": "2026-10-03",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@financialeducation",
+     "count": 953000,
+     "date": "Oct 2026",
+     "source": "https://www.getfused.io/creators/financial-education"
+    }
+   ],
+   "note": "",
+   "total_reach": 953000
+  },
+  {
+   "id": "wst",
+   "name": "Wallstreet Trapper",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 11,
+    "discord_channels": "be, etf’s, iren, nvda, nvts, qbts, rgti, spcx, stm",
+    "most_recent_share": "2026-10-12",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@wallstreettrapper",
+     "count": 787000,
+     "date": "Oct 2026",
+     "source": "https://www.getfused.io/creators/wallstreet-trapper"
+    }
+   ],
+   "note": "",
+   "total_reach": 787000
+  },
+  {
+   "id": "jo",
+   "name": "Jo Bhakdi",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 10,
+    "discord_channels": "tsla",
+    "most_recent_share": "2025-12-10",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@jobhakdi",
+     "count": 60100,
+     "date": "2026 (range 59.9K–60.1K)",
+     "source": "https://socialcounts.org/youtube-channel-analytics/UCSjlTWo8-Nbo6koK8df1y5w"
+    }
+   ],
+   "note": "",
+   "total_reach": 60100
+  },
+  {
+   "id": "pejjy",
+   "name": "Curious Pejjy",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 9,
+    "discord_channels": "tsla",
+    "most_recent_share": "2025-11-11",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@Pejjy",
+     "count": 36800,
+     "date": "2026-09-27",
+     "source": "https://influencerunion.com/creator/youtube/pejjy"
+    }
+   ],
+   "note": "",
+   "total_reach": 36800
+  },
+  {
+   "id": "stealth",
+   "name": "Stealth Wealth Investing",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 9,
+    "discord_channels": "amzn, multibagger, pltr, public-momentum, sofi",
+    "most_recent_share": "2026-10-12",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@StealthWealthInvesting",
+     "count": 144000,
+     "date": "2026 (trackers say 144K–150K; lower used)",
+     "source": "https://marketstory.com/investors/stealth-wealth-investing"
+    }
+   ],
+   "note": "",
+   "total_reach": 144000
+  },
+  {
+   "id": "felix",
+   "name": "Felix & Friends (Goat Academy)",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 8,
+    "discord_channels": "bbai, ionq, now, oklo, quantum-videos, sofi, tsla",
+    "most_recent_share": "2026-08-22",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@felixfriends",
+     "count": 809000,
+     "date": "Oct 2026",
+     "source": "https://www.getfused.io/creators/felix-friends-goat-academy"
+    }
+   ],
+   "note": "",
+   "total_reach": 809000
+  },
+  {
+   "id": "tht",
+   "name": "Traders Helping Traders",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 7,
+    "discord_channels": "amd, meta, nflx, orcl, tsla, zeta",
+    "most_recent_share": "2026-08-13",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@tradershelpingtraders",
+     "count": 70300,
+     "date": "2026-10-09",
+     "source": "https://socialblade.com/youtube/handle/tradershelpingtraders"
+    }
+   ],
+   "note": "",
+   "total_reach": 70300
+  },
+  {
+   "id": "herbert",
+   "name": "Brighter with Herbert",
+   "status": "active",
+   "jhun_attention": {
+    "discord_shares": 6,
+    "discord_channels": "tsla",
+    "most_recent_share": "2026-01-25",
+    "source": "/workspace/finance/influencers/discord_youtubers_2026-10-21.md"
+   },
+   "platforms": [
+    {
+     "platform": "YouTube",
+     "handle": "@brighterwithherbert",
+     "count": 218000,
+     "date": "2026-10-19",
+     "source": "https://influencerunion.com/creator/youtube/brighterwithherbert"
+    }
+   ],
+   "note": "",
+   "total_reach": 218000
+  }
+ ],
+ "inactive": [
+  {
+   "id": "kang",
+   "name": "Andrew Kang",
+   "status": "inactive",
+   "platforms": [
+    {
+     "platform": "X",
+     "handle": "@Rewkang",
+     "count": 422500,
+     "date": "page read 2026-10-21",
+     "source": "https://twiscan.com/en/x/Rewkang"
+    }
+   ],
+   "total_reach": 422500,
+   "note": "Removed from ring by Jhun; no stance on center stocks found."
+  }
+ ],
+ "stances": [
+  {
+   "ticker": "ZETA",
+   "influencer": "ziptrader",
+   "stance": "bullish",
+   "pitch": "Listed ZETA as a buy: 50% revenue growth, 19 straight quarters of beat-and-raise, better profitability (search summary).",
+   "title": "4 Stocks to BUY HEAVY in May 2026",
+   "date": "May 2026",
+   "link": "https://www.youtube.com/watch?v=wVXlBy_XBVQ",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "AMD",
+   "influencer": "ziptrader",
+   "stance": "bullish",
+   "pitch": "Bobalor tracker: 4 bullish, 0 bearish AMD mentions in 4 videos, Sep 20–Oct 19, 2026.",
+   "title": "not found",
+   "date": "Sep 20–Oct 19, 2026",
+   "link": "https://bobalor.com/en/creators/ziptrader",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "MU",
+   "influencer": "ziptrader",
+   "stance": "bullish",
+   "pitch": "Bobalor tracker: 2 bullish, 0 bearish MU mentions, Sep 20–Oct 19, 2026.",
+   "title": "not found",
+   "date": "Sep 20–Oct 19, 2026",
+   "link": "https://bobalor.com/en/creators/ziptrader",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "SOFI",
+   "influencer": "profg",
+   "stance": "bullish",
+   "pitch": "PEG ~0.9; record Q2 revenue $1.2B; he has a personal position. (He warns low PEG is only a starting point.)",
+   "title": "🚨 This Sale Won't Last.. 10 Growth Stocks to BUY NOW",
+   "date": "2026-09-10",
+   "link": "https://www.youtube.com/watch?v=fcbb7g8yyNQ",
+   "views": "not found",
+   "basis": "tubefolio summary of the video"
+  },
+  {
+   "ticker": "AMD",
+   "influencer": "profg",
+   "stance": "bullish",
+   "pitch": "PEG ~0.9; OpenAI GPU deployment deal. (He warns low PEG is only a starting point.)",
+   "title": "🚨 This Sale Won't Last.. 10 Growth Stocks to BUY NOW",
+   "date": "2026-09-10",
+   "link": "https://www.youtube.com/watch?v=fcbb7g8yyNQ",
+   "views": "not found",
+   "basis": "tubefolio summary of the video"
+  },
+  {
+   "ticker": "HIMS",
+   "influencer": "profg",
+   "stance": "bullish",
+   "pitch": "PEG ~0.8; big revenue growth and compressed valuation. (He warns low PEG is only a starting point.)",
+   "title": "🚨 This Sale Won't Last.. 10 Growth Stocks to BUY NOW",
+   "date": "2026-09-10",
+   "link": "https://www.youtube.com/watch?v=fcbb7g8yyNQ",
+   "views": "not found",
+   "basis": "tubefolio summary of the video"
+  },
+  {
+   "ticker": "NOW",
+   "influencer": "profg",
+   "stance": "bullish",
+   "pitch": "PEG ~0.6; $1B of AI annual contract value. (He warns low PEG is only a starting point.)",
+   "title": "🚨 This Sale Won't Last.. 10 Growth Stocks to BUY NOW",
+   "date": "2026-09-10",
+   "link": "https://www.youtube.com/watch?v=fcbb7g8yyNQ",
+   "views": "not found",
+   "basis": "tubefolio summary of the video"
+  },
+  {
+   "ticker": "MU",
+   "influencer": "profg",
+   "stance": "bullish",
+   "pitch": "PEG ~0.4; says he is 'invested pretty heavy.' (He warns low PEG is only a starting point.)",
+   "title": "🚨 This Sale Won't Last.. 10 Growth Stocks to BUY NOW",
+   "date": "2026-09-10",
+   "link": "https://www.youtube.com/watch?v=fcbb7g8yyNQ",
+   "views": "not found",
+   "basis": "tubefolio summary of the video"
+  },
+  {
+   "ticker": "AMZN",
+   "influencer": "bwb",
+   "stance": "bullish",
+   "pitch": "Said in October 2026 that Amazon 'had slipped into a buy'; AWS sold out into 2026–27, PEG just over 1.",
+   "title": "not found",
+   "date": "2026-10-11",
+   "link": "https://theysaidbuy.com/creators/business-with-brian/",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "APLD",
+   "influencer": "bwb",
+   "stance": "bullish",
+   "pitch": "AI data-center landlord with $36B signed leases at ~5x signed rent vs peers' 12–16x; sees potential to double.",
+   "title": "not found",
+   "date": "~Oct 2026 ('1w ago')",
+   "link": "https://www.thestockie.com/influencers/UCyqlbzLoYtpqDXwRI9Yh5LA",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "MRVL",
+   "influencer": "bwb",
+   "stance": "bearish",
+   "pitch": "His system gave one of the 'strongest sell signals' on Marvell: ~80x last year's profit vs a 33x average.",
+   "title": "not found",
+   "date": "~2026-09-25",
+   "link": "https://tubefolio.net/videos/cmuh70ytg0063pkqejikfut93",
+   "views": "not found",
+   "basis": "tubefolio summary"
+  },
+  {
+   "ticker": "MU",
+   "influencer": "bwb",
+   "stance": "watch",
+   "pitch": "Signal downgraded from 'buy a lot' to 'buy a little' because the stock is this expensive only 2% of the time.",
+   "title": "not found",
+   "date": "~late Sep 2026 ('3w ago')",
+   "link": "https://www.thestockie.com/influencers/UCyqlbzLoYtpqDXwRI9Yh5LA",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "MU",
+   "influencer": "hogue",
+   "stance": "bullish",
+   "pitch": "Named Micron among memory \"AI picks and shovels plays\": \"the upside is not over.\"",
+   "title": "If You Missed 15x on Nvidia, Buy These Stocks Now",
+   "date": "not found",
+   "link": "https://www.youtube.com/watch?v=5tLevK9HqFU",
+   "views": "not found",
+   "basis": "video/transcript"
+  },
+  {
+   "ticker": "BE",
+   "influencer": "tomnash",
+   "stance": "bullish",
+   "pitch": "\"We added Bloom Energy this year. It's up 76%\" (on his top stocks list; buy-the-dip framing).",
+   "title": "🚨MAJOR BUY: Last EASY Wealth Opportunity For Decades",
+   "date": "not found",
+   "link": "https://www.youtube.com/watch?v=h94xqVRSHkA",
+   "views": "not found",
+   "basis": "video/transcript"
+  },
+  {
+   "ticker": "MU",
+   "influencer": "tomnash",
+   "stance": "bullish",
+   "pitch": "\"Micron added this year. It's up 188% since we added it.\"",
+   "title": "🚨MAJOR BUY: Last EASY Wealth Opportunity For Decades",
+   "date": "not found",
+   "link": "https://www.youtube.com/watch?v=h94xqVRSHkA",
+   "views": "not found",
+   "basis": "video/transcript"
+  },
+  {
+   "ticker": "SOFI",
+   "influencer": "henry",
+   "stance": "bullish",
+   "pitch": "Bobalor tracker: 7 bullish, 1 bearish SOFI mentions, Sep 21–Oct 20, 2026.",
+   "title": "not found",
+   "date": "Sep 21–Oct 20, 2026",
+   "link": "https://bobalor.com/en/creators/invest-with-henry",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "AMZN",
+   "influencer": "henry",
+   "stance": "bullish",
+   "pitch": "Bobalor tracker: 3 bullish, 1 neutral AMZN mentions, Sep 21–Oct 20, 2026.",
+   "title": "not found",
+   "date": "Sep 21–Oct 20, 2026",
+   "link": "https://bobalor.com/en/creators/invest-with-henry",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "AMD",
+   "influencer": "henry",
+   "stance": "bullish",
+   "pitch": "Bobalor tracker: 3 bullish, 1 neutral AMD mentions, Sep 21–Oct 20, 2026.",
+   "title": "not found",
+   "date": "Sep 21–Oct 20, 2026",
+   "link": "https://bobalor.com/en/creators/invest-with-henry",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "BE",
+   "influencer": "henry",
+   "stance": "bullish",
+   "pitch": "Title: \"Bloom Energy Stock Could EXPLODE — Here's My Strategy (BE).\"",
+   "title": "Bloom Energy Stock Could EXPLODE — Here’s My Strategy (BE)",
+   "date": "2026-09-01",
+   "link": "https://prepublish.ai/youtube-channel/investwithhenry",
+   "views": "33.4K",
+   "basis": "video title only"
+  },
+  {
+   "ticker": "TSLA",
+   "influencer": "henry",
+   "stance": "bullish",
+   "pitch": "Title: \"I JUST Invested $1.5 MILLION in Tesla Stock (TSLA), Here's Why.\"",
+   "title": "I JUST Invested $1.5 MILLION in Tesla Stock (TSLA), Here's Why",
+   "date": "not found",
+   "link": "https://www.youtube.com/watch?v=eVifPL2xAPM",
+   "views": "not found",
+   "basis": "video title only (Discord example)"
+  },
+  {
+   "ticker": "SOFI",
+   "influencer": "lefebvre",
+   "stance": "bullish",
+   "pitch": "Buying SoFi in May 2026 as a long-term fintech/banking play, favoring shares below $20.",
+   "title": "4 Stocks I'm Buying in May 2026",
+   "date": "May 2026",
+   "link": "https://jeremylefebvre.substack.com/p/4-stocks-im-buying-in-may-2026",
+   "views": "not found",
+   "basis": "Substack post (search summary)"
+  },
+  {
+   "ticker": "AMD",
+   "influencer": "lefebvre",
+   "stance": "bullish",
+   "pitch": "Holds AMD and bought more in Jan 2026; Oct 2026 30-day view $675–$775.",
+   "title": "not found",
+   "date": "Oct 2026",
+   "link": "https://theysaidbuy.com/creators/jeremy-lefebvre/stocks/amd/",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "SOFI",
+   "influencer": "fined",
+   "stance": "bullish",
+   "pitch": "Calls SoFi a buy; $50–$100 long-term target, expects it above $20 by end of 2026.",
+   "title": "not found",
+   "date": "not found",
+   "link": "https://theysaidbuy.com/creators/jeremy-lefebvre/stocks/sofi/",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "NOW",
+   "influencer": "fined",
+   "stance": "bullish",
+   "pitch": "Calls ServiceNow a buy; $300–$500 long-term target.",
+   "title": "not found",
+   "date": "not found",
+   "link": "https://theysaidbuy.com/creators/jeremy-lefebvre/stocks/now/",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "AMD",
+   "influencer": "fined",
+   "stance": "bullish",
+   "pitch": "Bullish; $675–$775 30-day view and $1,000 multi-year base case.",
+   "title": "not found",
+   "date": "not found",
+   "link": "https://theysaidbuy.com/creators/jeremy-lefebvre/",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "AMZN",
+   "influencer": "camillo",
+   "stance": "bullish",
+   "pitch": "Ranked Amazon S tier: \"the number one beneficiary of the AI efficiency wave.\" Reportedly ~70% of his portfolio.",
+   "title": "Chris Camillo Ranks the BEST Stocks for 2026",
+   "date": "not found",
+   "link": "https://www.youtube.com/watch?v=nDRVyHbrJlk",
+   "views": "not found",
+   "basis": "video/transcript"
+  },
+  {
+   "ticker": "BE",
+   "influencer": "camillo",
+   "stance": "bullish",
+   "pitch": "\"Bloom Energy has to be S tier ... my number one pick for the last year.\" Later said he took some profits but is still in.",
+   "title": "Chris Camillo Ranks the BEST Stocks for 2026",
+   "date": "not found",
+   "link": "https://www.youtube.com/watch?v=nDRVyHbrJlk",
+   "views": "not found",
+   "basis": "video/transcript"
+  },
+  {
+   "ticker": "BE",
+   "influencer": "wst",
+   "stance": "bullish",
+   "pitch": "Title: \"Bloom Energy Could Move Fast—Here's How I'm Getting Ready.\"",
+   "title": "Bloom Energy Could Move Fast—Here’s How I’m Getting Ready",
+   "date": "not found",
+   "link": "https://tubeai.app/youtube/channels/wallstreettrapper",
+   "views": "~51,103",
+   "basis": "video title only"
+  },
+  {
+   "ticker": "AMZN",
+   "influencer": "stealth",
+   "stance": "bullish",
+   "pitch": "Says he keeps buying Amazon; a major position in his public account.",
+   "title": "SoFi & Amazon Shareholders‼️LISTEN UP",
+   "date": "not found",
+   "link": "https://www.youtube.com/watch?v=7HbJXwj1H8A",
+   "views": "not found",
+   "basis": "search summary"
+  },
+  {
+   "ticker": "SOFI",
+   "influencer": "stealth",
+   "stance": "watch",
+   "pitch": "Mixed: says he keeps buying SoFi (up 65% for him), but another video is titled 'Bull Case is BROKEN for SOFI Stock.'",
+   "title": "Bull Case is BROKEN for SOFI Stock",
+   "date": "not found",
+   "link": "https://www.youtube.com/watch?v=CfAlB_OoIDs",
+   "views": "not found",
+   "basis": "titles + search summary"
+  },
+  {
+   "ticker": "AMD",
+   "influencer": "tht",
+   "stance": "bullish",
+   "pitch": "Tracked as a bullish AMD prediction.",
+   "title": "not found",
+   "date": "2026-09-14",
+   "link": "https://tahlil-plus.com/signals/116728",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "ZETA",
+   "influencer": "tht",
+   "stance": "bullish",
+   "pitch": "Tracked as a bullish ZETA prediction.",
+   "title": "not found",
+   "date": "2026-08-11",
+   "link": "https://tahlil-plus.com/signals/92203",
+   "views": "not found",
+   "basis": "tracker summary (third-party AI-extracted), not quoted from the video"
+  },
+  {
+   "ticker": "TSLA",
+   "influencer": "jo",
+   "stance": "bullish",
+   "pitch": "Title: \"Why Tesla Stock Is Now READY TO RUN.\"",
+   "title": "Why Tesla Stock Is Now READY TO RUN",
+   "date": "2026",
+   "link": "https://helpolos.com/channel/@jobhakdi/8jKVZYxkqYA",
+   "views": "not found",
+   "basis": "video title only"
+  },
+  {
+   "ticker": "TSLA",
+   "influencer": "pejjy",
+   "stance": "bullish",
+   "pitch": "Title: \"EXCLUSIVE: 'Tesla OVER $4100 By 2030' + NEAR-TERM Catalysts\" (guest view).",
+   "title": "EXCLUSIVE: \"Tesla OVER $4100 By 2030\" + NEAR-TERM Catalysts",
+   "date": "not found",
+   "link": "https://www.youtube.com/watch?v=6-1jpSmdENQ",
+   "views": "not found",
+   "basis": "video title only (Discord example)"
+  },
+  {
+   "ticker": "TSLA",
+   "influencer": "herbert",
+   "stance": "bullish",
+   "pitch": "Title: \"EXCLUSIVE: Why Tesla Could Break ALL Time Highs | Mark Newton\" (guest view).",
+   "title": "EXCLUSIVE: Why Tesla Could Break ALL Time Highs | Mark Newton",
+   "date": "not found",
+   "link": "https://www.youtube.com/watch?v=KxwnHZwgELQ",
+   "views": "not found",
+   "basis": "video title only (Discord example)"
+  }
+ ],
+ "placeholders": [
+  {
+   "id": "TBD_1",
+   "name": "(add name)",
+   "status": "placeholder",
+   "platforms": [],
+   "total_reach": 0
+  }
+ ],
+ "gaps": {
+  "no_stance_found": [
+   "Ticker Symbol: YOU (MU/SKHY covered, direction not found)",
+   "Felix & Friends ('❌ SoFi: I'm Sorry.' is ambiguous)",
+   "Hogue SOFI (most-called, direction not found)",
+   "Tom Nash ZETA (Discord lead: TheRonnieVShow 'Is Zeta Global the Next 10X Stock?', not confirmed)",
+   "Wallstreet Trapper SPCX (video is about stocks to buy before the IPO, not SPCX itself)"
+  ],
+  "missing_counts": [
+   "Jeremy Lefebvre Clips YouTube",
+   "X counts for everyone except Camillo"
+  ],
+  "views_dates": "Most views/dates not found: YouTube blocks direct page reads from the box."
+ }
+};</script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script>
+const col={bullish:"#22c55e",watch:"#eab308",bearish:"#ef4444"};
+const info=document.getElementById('info'),fmt=n=>n?n.toLocaleString():'not found',lk=u=>u&&u.startsWith('http')?`<a href="${u}" target="_blank">${u}</a>`:'not found';
+const INF=()=>DATA.influencers.concat(DATA.placeholders||[]);const get=id=>INF().find(i=>i.id==id);
+function stockPanel(t){const s=DATA.stances.filter(x=>x.ticker==t).sort((a,b)=>get(b.influencer).total_reach-get(a.influencer).total_reach);
+ info.innerHTML=`<h2>${t} <span class="sub">${DATA.stocks.find(x=>x.ticker==t).group}</span></h2><b>Bullish: ${s.filter(x=>x.stance=='bullish').length}</b>`+
+ (s.length?s.map(x=>{const i=get(x.influencer);return `<div class="card" style="border-left:4px solid ${col[x.stance]}"><b>${i.name}</b> — ${x.stance} · reach ${fmt(i.total_reach)}<br>${x.pitch}<br><span class="sub">"${x.title}" · date: ${x.date} · views: ${x.views}</span><br><span class="sub">basis: ${x.basis}</span><br>${lk(x.link)}</div>`}).join(''):'<p>No influencer stance found.</p>');}
+function infPanel(id){const i=get(id);const s=DATA.stances.filter(x=>x.influencer==id);
+ info.innerHTML=`<h2>${i.name}</h2><b>Total reach: ${fmt(i.total_reach)}</b>`+(i.jhun_attention?`<div class="card"><b>Jhun's attention:</b> ${i.jhun_attention.discord_shares} Discord shares · last ${i.jhun_attention.most_recent_share}<br><span class="sub">channels: ${i.jhun_attention.discord_channels}</span></div>`:'')+(i.note?`<p class="sub">${i.note}</p>`:'')+i.platforms.map(p=>`<div class="card">${p.platform} ${p.handle}: ${fmt(p.count)}<br><span class="sub">as of ${p.date}</span><br>${lk(p.source)}</div>`).join('')+
+ (s.length?s.map(x=>`<div class="card" style="border-left:4px solid ${col[x.stance]}"><b>${x.ticker}</b> — ${x.stance}: ${x.pitch}</div>`).join(''):'<p>No stance found on the center stocks.</p>');}
+if(!window.d3){document.getElementById('chart').innerHTML='<p style="padding:20px">Diagram library could not load (offline). Stocks:</p>'+DATA.stocks.map(s=>`<button onclick="stockPanel('${s.ticker}')">${s.ticker}</button>`).join(' ');}
+else{
+const el=document.getElementById('chart'),W=el.clientWidth,H=Math.max(el.clientHeight,500),R=Math.min(W,H)/2-40;
+const svg=d3.select('#chart').append('svg').attr('viewBox',[0,0,W,H]);const tip=d3.select('#tip');
+const cnt=t=>DATA.stances.filter(x=>x.ticker==t).length,inf=INF(),mx=d3.max(inf,i=>i.total_reach)||1;
+const nodes=DATA.stocks.map(s=>({id:s.ticker,type:'stock',g:s.group,r:cnt(s.ticker)?13+cnt(s.ticker)*5:9,x:W/2+Math.random()*40,y:H/2+Math.random()*40}))
+ .concat(inf.map((a,i)=>{const an=i/inf.length*2*Math.PI-Math.PI/2;return{id:a.id,name:a.name,ph:a.status=='placeholder',type:'inf',r:14+20*Math.sqrt(a.total_reach/mx),fx:W/2+R*Math.cos(an),fy:H/2+R*Math.sin(an)}}));
+const links=DATA.stances.map(s=>({source:s.influencer,target:s.ticker,stance:s.stance}));
+const sim=d3.forceSimulation(nodes).force('link',d3.forceLink(links).id(d=>d.id).strength(0.01))
+ .force('c',d3.forceRadial(0,W/2,H/2).strength(d=>d.type=='stock'?0.1:0)).force('col',d3.forceCollide(d=>d.r+3));
+const L=svg.append('g').selectAll('line').data(links).join('line').attr('stroke',d=>col[d.stance]).attr('stroke-width',2.5).attr('opacity',.7);
+const N=svg.append('g').selectAll('g').data(nodes).join('g').style('cursor','pointer');
+N.append('circle').attr('r',d=>d.r).attr('fill',d=>d.type=='inf'?(d.ph?'#334155':'#64748b'):d.g=='holding'?'#3b82f6':'#a855f7').attr('stroke','#fff').attr('stroke-dasharray',d=>d.ph?'4':null);
+N.append('text').text(d=>d.type=='inf'?(d.ph?'+ add':d.name.split(/[ ,(]/).filter(Boolean).slice(0,2).join(' ')):d.id).style('font-size',d=>d.type=='inf'?'10px':'11px');
+N.on('mousemove',(e,d)=>{const s=DATA.stances.filter(x=>d.type=='stock'?x.ticker==d.id:x.influencer==d.id);
+ tip.style('display','block').style('left',(e.offsetX+12)+'px').style('top',(e.offsetY+12)+'px').html(`<b>${d.name||d.id}</b><br>${d.type=='inf'?'reach '+fmt(get(d.id).total_reach)+'<br>':''}${s.filter(x=>x.stance=='bullish').length} bullish · ${s.filter(x=>x.stance=='watch').length} watch · ${s.filter(x=>x.stance=='bearish').length} bearish`)})
+ .on('mouseleave',()=>tip.style('display','none'))
+ .on('click',(e,d)=>{const ids=new Set([d.id]);links.forEach(l=>{if(l.source.id==d.id)ids.add(l.target.id);if(l.target.id==d.id)ids.add(l.source.id)});
+  N.attr('opacity',n=>ids.has(n.id)?1:.2);L.attr('opacity',l=>l.source.id==d.id||l.target.id==d.id?1:.05);d.type=='stock'?stockPanel(d.id):infPanel(d.id);e.stopPropagation()});
+svg.on('click',()=>{N.attr('opacity',1);L.attr('opacity',.7)});
+N.call(d3.drag().on('start',(e,d)=>{if(!e.active)sim.alphaTarget(.3).restart();d.fx=d.x;d.fy=d.y}).on('drag',(e,d)=>{d.fx=e.x;d.fy=e.y})
+ .on('end',(e,d)=>{if(!e.active)sim.alphaTarget(0);if(d.type=='stock'){d.fx=null;d.fy=null}}));
+sim.on('tick',()=>{L.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);N.attr('transform',d=>`translate(${d.x},${d.y})`)});
+}
+</script></body></html>
